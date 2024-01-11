@@ -1,40 +1,17 @@
-
-from flask import Flask, request
-from operations import add, sub, mult, div
+# Put your app in here.
+from flask import Flask
 
 app = Flask(__name__)
 
+# ... Define routes and application logic ...
+@app.route('/welcome')
+def welcome_msg():
+    return '<h1> Welcome! </h1>'
 
-@app.route('/add')
-def do_add ():
-    "add a and b parameters"
-    a = int(request.args.get('a'))
-    b = int(request.args.get('b'))
-    result = add(a,b)
-    return str(result)
+@app.route('/welcome/home')
+def welcome_home():
+    return '<h1> Welcome Home! </h1>'
 
-@app.route('/sub')
-def do_sub():
-    "subtract a and b parameters"
-    a = int(request.args.get('a'))
-    b = int(request.args.get('b'))
-    result = sub(a,b)
-    return str(result)
-
-@app.route('/mult')
-def do_mult():
-    "multiply a and b paramters"
-    a = int(request.args.get('a'))
-    b = int(request.args.get('b'))
-    result = mult(a,b)
-    return str(result)
-
-@app.route('/div')
-def do_div():
-    "divide a and b parameters"
-    a = int(request.args.get('a'))
-    b = int(request.args.get('b'))
-    result = div(a,b)
-    return str(result)
-
-
+@app.route('/welcome/back')
+def welcome_back():
+    return '<h1> Welcome Back! </h1>'
